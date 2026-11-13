@@ -1,0 +1,14 @@
+{
+  "name": "claude-emoji",
+  "owner": {
+    "name": "Daniel Ackroyd"
+  },
+  "description": "emoji, a Claude Code mod for Slack-style emoji in the prompt",
+  "plugins": [
+    {
+      "name": "emoji",
+      "source": "./",
+      "description": "Slack-style emoji in the prompt: :shortcode typeahead, a /emoji picker, auto-replace, and a customizable set"
+    }
+  ]
+}
