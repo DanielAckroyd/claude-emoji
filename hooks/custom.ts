@@ -1,5 +1,6 @@
 import type { Custom } from '../types'
-import { EMOJI, type Emoji } from './emoji'
+import { BUILTIN } from './aliases'
+import type { Emoji } from './emoji'
 
 export type { Custom }
 
@@ -11,7 +12,7 @@ export const NAME = /^[a-z0-9_+-]+$/
 // Built-ins minus removals and overrides, then additions.
 export function effective(custom: Custom): Emoji[] {
   const hidden = new Set([...custom.removed, ...custom.added.map(e => e.name)])
-  return [...EMOJI.filter(e => !hidden.has(e.name)), ...custom.added]
+  return [...BUILTIN.filter(e => !hidden.has(e.name)), ...custom.added]
 }
 
 export function add(custom: Custom, more: readonly Emoji[]): Custom {
@@ -24,7 +25,7 @@ export function add(custom: Custom, more: readonly Emoji[]): Custom {
 
 export function remove(custom: Custom, names: readonly string[]): Custom {
   const drop = new Set(names)
-  const builtin = new Set(EMOJI.map(e => e.name))
+  const builtin = new Set(BUILTIN.map(e => e.name))
   return {
     added: custom.added.filter(e => !drop.has(e.name)),
     removed: [...new Set([...custom.removed, ...names.filter(n => builtin.has(n))])],

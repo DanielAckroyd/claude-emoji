@@ -1,6 +1,6 @@
 # claude-emoji
 
-Slack-style emoji for the Claude Code prompt, as a Claude Code mod. Every one of Slack's standard shortcodes (1,906 emoji, from [iamcal/emoji-data](https://github.com/iamcal/emoji-data)) in three ways you already know from Slack, plus your own additions.
+Slack-style emoji for the Claude Code prompt, as a Claude Code mod. Every one of Slack's standard shortcodes (1,906 emoji, from [iamcal/emoji-data](https://github.com/iamcal/emoji-data)) in three ways you already know from Slack, plus your own additions. On top of Slack's names, about 225 everyday aliases Slack lacks also work: `:lol:`, `:rofl:`, `:facepalm:`, `:thinking:`, `:lgtm:`, `:thanks:`, `:yikes:`, `:check:`, `:stonks:` and so on (see `hooks/aliases.ts`).
 
 ## Install
 

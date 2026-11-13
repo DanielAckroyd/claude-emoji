@@ -3,7 +3,8 @@ import type { EngineInterface, PromptAutocompleteSuggestion, Register } from 'cl
 
 import type { Frequent } from '../types'
 import { add, cells, EMPTY, effective, exported, NAME, parse, remove, type Custom } from './custom'
-import { EMOJI, type Emoji } from './emoji'
+import { BUILTIN } from './aliases'
+import type { Emoji } from './emoji'
 
 const PANE = 'emoji-picker'
 const MAX_ROWS = 8
@@ -37,7 +38,7 @@ const TABS: readonly (readonly [string, string])[] = [
 ]
 
 // Per-keystroke hooks read these instead of $.state; kept in step with it.
-let active: Emoji[] = [...EMOJI]
+let active: Emoji[] = [...BUILTIN]
 let byName = new Map<string, Emoji>()
 let counts: Frequent = {}
 
@@ -155,7 +156,7 @@ export const register: Register = on => {
         const name = rawName.replace(/^:|:$/g, '').toLowerCase()
         const char = value.join(' ').trim()
         if (!NAME.test(name) || !char) return { text: 'Usage: /emoji add <name> <emoji>' }
-        const isOverride = EMOJI.some(x => x.name === name)
+        const isOverride = BUILTIN.some(x => x.name === name)
         await save($, add(current, [{ name, char }]))
         return { text: `${isOverride ? 'Overrode' : 'Added'} :${name}: → ${char}` }
       }
