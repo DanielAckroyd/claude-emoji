@@ -1,6 +1,6 @@
 # claude-emoji
 
-Slack-style emoji for the Claude Code prompt, as a Claude Code mod. Every one of Slack's standard shortcodes (1,906 emoji, from [iamcal/emoji-data](https://github.com/iamcal/emoji-data)) in three ways you already know from Slack, plus your own additions. On top of Slack's names, about 225 everyday aliases Slack lacks also work: `:lol:`, `:rofl:`, `:facepalm:`, `:thinking:`, `:lgtm:`, `:thanks:`, `:yikes:`, `:check:`, `:stonks:` and so on (see `hooks/aliases.ts`).
+Slack-style emoji for the Claude Code prompt, as a Claude Code mod. Every one of Slack's standard shortcodes (1,906 emoji, from [iamcal/emoji-data](https://github.com/iamcal/emoji-data)) in three ways you already know from Slack, plus your own additions. On top of Slack's names, about 225 everyday aliases Slack lacks also work: `:lol:`, `:rofl:`, `:facepalm:`, `:thinking:`, `:lgtm:`, `:thanks:`, `:yikes:`, `:check:`, `:stonks:` and so on (see `hooks/aliases.ts`). GitHub's names work too, from [github/gemoji](https://github.com/github/gemoji): `:afghanistan:`, `:1st_place_medal:`, `:roll_eyes:`. Where GitHub and Slack disagree, Slack wins, so `:umbrella:` is ☂️.
 
 ## Install
 
@@ -63,8 +63,8 @@ claude plugin validate .
 claude plugin test .
 ```
 
-`hooks/emoji.ts` is generated; to update it to a newer emoji-data release, see the header of `scripts/build-emoji.ts`.
+`hooks/emoji.ts` and `hooks/gemoji.ts` are generated; to update them, see the headers of `scripts/build-emoji.ts` and `scripts/build-gemoji.ts`.
 
 ## License
 
-MIT. Emoji data from iamcal/emoji-data, MIT.
+MIT. Emoji data from iamcal/emoji-data and github/gemoji, both MIT.

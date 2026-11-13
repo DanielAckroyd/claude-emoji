@@ -1,4 +1,5 @@
 import { EMOJI, type Emoji } from './emoji'
+import { GEMOJI_ALIASES } from './gemoji'
 
 // Names people reach for that Slack doesn't have, keyed by Slack's name. Kept
 // by hand beside the generated list; a test holds them clear of Slack's names.
@@ -66,7 +67,7 @@ export const EXTRA_ALIASES: Readonly<Record<string, readonly string[]>> = {
   "heavy_minus_sign": ["minus"],
   "large_green_circle": ["green_circle", "green"],
   "large_yellow_circle": ["yellow_circle", "yellow"],
-  "large_orange_circle": ["orange_circle", "orange"],
+  "large_orange_circle": ["orange_circle"],
   "large_blue_circle": ["blue_circle", "blue"],
   "large_purple_circle": ["purple_circle", "purple"],
   "red_circle": ["red"],
@@ -114,6 +115,6 @@ export const EXTRA_ALIASES: Readonly<Record<string, readonly string[]>> = {
 }
 
 export const BUILTIN: readonly Emoji[] = EMOJI.map(e => {
-  const extra = EXTRA_ALIASES[e.name]
-  return extra ? { ...e, aliases: [...(e.aliases ?? []), ...extra] } : e
+  const extra = [...(EXTRA_ALIASES[e.name] ?? []), ...(GEMOJI_ALIASES[e.name] ?? [])]
+  return extra.length ? { ...e, aliases: [...(e.aliases ?? []), ...extra] } : e
 })
